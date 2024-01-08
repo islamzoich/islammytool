@@ -1,0 +1,3 @@
+http://www.groupebourenane.com/admin/admin-login.brf ~> 302
+        [-] http://www.groupebourenane.com/admin/admin_login.brf ~> 302
+        [-] http://www.groupebourenane.com/admin/home.html ~> 302

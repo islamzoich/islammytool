@@ -1,0 +1,7 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+www.tenable.com	0	0	1702241251	31536000
+cpan.org	0	1	1703101410	63072010
+www.cpan.org	0	1	1703101411	31536000
+portswigger.net	0	0	1702133729	31536000

